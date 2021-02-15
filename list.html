@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Stock List</title>
+        <link rel="stylesheet" type= "text/css" href= "static/css/list.css">
+        <script>
+        window.onload = function(){
+            document.forms.frm.select_code.size = window.innerHeight/22;
+            document.getElementById('inline-frame').height = window.innerHeight-20;
+            document.getElementById('inline-frame').width = window.innerWidth-200;
+        }
+        window.onresize = function change_height() {
+            document.forms.frm.select_code.size = window.innerHeight/22;
+            document.getElementById('inline-frame').height = window.innerHeight-20;
+            document.getElementById('inline-frame').width = window.innerWidth-200;
+        }
+        function disp_chart() {
+            var value = document.getElementById("select_code").value;
+            var url = './candle2.html?code='+value;
+            document.getElementById('inline-frame').contentWindow.location.replace(url);
+        }
+        </script>
+    </head>
+    <body>
+        <form id="frm" >
+            <select id="select_code" size="30" onchange="disp_chart()">
+                <option value="1001">1001 日経２２５</option>
+                <option value="1002">1002 ＴＯＰＩＸ</option>
+                <option value="1332">1332 日水</option>
+                <option value="1333">1333 マルハニチロ</option>
+                <option value="1605">1605 国際石油開発</option>
+                <option value="1721">1721 コムシスＨＤ</option>
+                <option value="1801">1801 大成建</option>
+                <option value="1802">1802 大林組</option>
+                <option value="1803">1803 清水建</option>
+                <option value="1812">1812 鹿島</option>
+                <option value="1925">1925 大和ハウス</option>
+                <option value="1928">1928 積ハウス</option>
+                <option value="1963">1963 日揮</option>
+                <option value="2282">2282 日ハム</option>
+                <option value="3103">3103 ユニチカ</option>
+                <option value="4901">4901 富士フィルム</option>
+                <option value="5019">5019 出光興産</option>
+                <option value="6367">6367 ダイキン</option>
+                <option value="7003">7003 三井造</option>
+                <option value="8053">8053 住友商</option>
+                <option value="9022">9022 ＪＲ東海</option>
+            </select>
+        </form>
+        <iframe id="inline-frame"
+            align="top"
+            width = 800
+            height = 575
+            src="./index.html">
+        </iframe>
+    </body>
+</html>
